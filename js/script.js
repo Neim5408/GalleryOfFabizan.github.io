@@ -1,6 +1,16 @@
 // toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
+let videoBtn = document.querySelectorAll('.vid-btn');
+
+videoBtn.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelector('.controls .active').classList.remove('active');
+    btn.classList.add('active');
+    let src = btn.getAttribute('data-src');
+    document.querySelector('#video-slider').src = src;
+  });
+});
 
 menuIcon.onclick = () => {
   menuIcon.classList.toggle('bx-x');
@@ -43,8 +53,8 @@ ScrollReveal({
   delay: 200,
 });
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+ScrollReveal().reveal('.homet-content, .home-content, .heading', { origin: 'top' });
+ScrollReveal().reveal('.homet-content a, .vid-btn, .home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
